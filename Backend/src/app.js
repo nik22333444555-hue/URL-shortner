@@ -13,10 +13,10 @@ import logger from "./config/logger.js";
 import i18next from "./config/i18n.js";
 import i18nextMiddleware from "i18next-http-middleware";
 
-import errorHandler from "./middlewares/errorHandler.js";
+import errorMiddleware from "./middleware/error.middleware.js";
 
 import userRoutes from "./routes/authRoutes/auth.routes.js"
-
+import urlRoutes from "./routes/urlRoutes/url.routes.js"
 
 const app = express();
 
@@ -49,11 +49,14 @@ app.use(cookieParser()); //parse cookie and store in req.cookie
 
 app.use("/api/v1", userRoutes);
 
+app.use("/api/v1", urlRoutes);
+
+
 // 404 Handler
 
 
 
-app.use(errorHandler); //global error handler last
+app.use(errorMiddleware); //global error handler last
 
 
 export default app;

@@ -26,7 +26,6 @@ import {
     resetPasswordValidator,
     changePasswordValidator,
     updateProfileValidator,
-    RefreshAccessToken
 } from "../../validators/auth.validators.js";
 
 import {
@@ -42,9 +41,13 @@ import {
     UpdatePassword,
     DeleteAccount,
     DeactivateAccount,
-} from "../controller/user.controller.js";
+    RefreshAccessToken
+} from "../../controller/authController/auth.controller.js";
 
 const router = express.Router();
+
+
+
 
 // Public Routes
 

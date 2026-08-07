@@ -14,7 +14,7 @@ const env = cleanEnv(process.env, {
 
    MongoDB_URL:str(),
 
-   Redis_URL: str(),
+   REDIS_URL: str(),
 
    JWT_ACCESS_SECRET: str(),
 

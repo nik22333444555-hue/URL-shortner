@@ -1,4 +1,4 @@
-import RefreshToken from "../model/refreshToken.model.js";
+import RefreshToken from "../../model/authModel/refreshToken.model.js";
 
 
 class RefreshTokenRepository {

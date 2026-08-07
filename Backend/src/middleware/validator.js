@@ -1,6 +1,6 @@
 import { validationResult } from "express-validator";
-import APiError from "../utils/ApiError.js"
-import logger from "../config/logger.js"
+import APiError from "../utils/ApiError.js";
+import logger from "../config/logger.js";
 
 const validate = (req, res, next) => {
 

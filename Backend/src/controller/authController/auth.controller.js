@@ -18,7 +18,7 @@ import {
     updateProfileService,
     changePasswordService,
     deleteAccountService,
-    DeactivateAccountService,
+    deactivateAccountService   ,
     refreshAccessTokenService
 } from "../../service/authService/auth.service.js";
 
@@ -273,7 +273,7 @@ export const DeleteAccount = TryCatch(async (req, res) => {
 export const DeactivateAccount = TryCatch(async (req, res) => {
     const userId = req.user._id;
 
-    await DeactivateAccountService(userId);
+    await deactivateAccountService(userId);
 
     res.clearCookie(
         "accessToken",

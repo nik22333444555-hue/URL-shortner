@@ -211,23 +211,24 @@ export const changePasswordLimiter = rateLimit({
 });
 
 
-export const resendOtpLimiter = rateLimit({
 
-    store:createStore("resendotp:"),
 
-    windowMs: 60*60*1000,
 
-    max:15,
+export const createUrlLimiter = rateLimit({
+    windowMs: 15 * 60 * 1000,
+    max: 20,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: "Too many URL creation requests"
+});
 
-    standardHeaders:true,
 
-    legacyHeaders:false,
 
-    handler: (req,res,next) =>{
-        return next(
-            new ApiError(429,req.t("rateLimiter.changePassword.tooManyRequests"))
-        )
-    }
-
+export const redirectLimiter = rateLimit({
+    windowMs: 1 * 60 * 1000,
+    max: 100,
+    standardHeaders: true,
+    legacyHeaders: false,
+    message: "Too many requests"
 });
 

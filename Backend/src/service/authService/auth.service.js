@@ -6,11 +6,15 @@ import env from "../../config/env.js"
 import userRepository from "../../repository/authRepository/auth.repository.js";
 import refreshTokenRepository from "../../repository/authRepository/refreshToken.repository.js"
 
-import sendEmail from "./email.service.js";
 
+import {
+    sendOTPEmail,
+    sendResetPasswordEmail,
+    sendWelcomeEmail
+} from "./email.service.js";
 
 import generateToken from "../../utils/generateToken.js";
-import generateOTP from '../../utils/generateOTP.js';
+import generateOTP from '../../utils/generateOtp.js';
 
 import welcomeTemplate from "../../templates/welcome.template.js";
 import otpTemplate from '../../templates/otp.template.js';
@@ -309,7 +313,7 @@ export const deleteAccountService = async (userData) => {
 
 };
 
-export const deactivateAccountService = async (userId) => {
+export const deactivateAccountService    = async (userId) => {
 
     const user = await userRepository.deactivateAccount(userId);
 
